@@ -6,8 +6,8 @@
         <p>{{ currentPoint }}</p>
     </div>
     <div class="mb-3">
-        <button @click="openModal" class="btn btn-primary">ためる</button>
-          <div id="overlay" v-show:="showContent">
+        <button @click="openModal(0)" class="btn btn-primary">ためる</button>
+          <div id="overlay" v-show:="showContentPlus">
             <div id="content">
               <p>ポイントを貯めますか？</p>
               <button @click="plus">はい</button>
@@ -20,7 +20,14 @@
             <button @click="minus" class="btn btn-primary" disabled>つかう</button>
         </div>
         <div v-else>
-            <button @click="minus" class="btn btn-primary">つかう</button>
+            <button @click="openModal(1)" class="btn btn-primary">つかう</button>
+            <div id="overlay" v-show:="showContentMinus">
+              <div id="content">
+                <p>ポイントを使いますか？</p>
+                <button @click="minus" class="btn btn-primary">はい</button>
+                <button @click="closeModal">いいえ</button>
+              </div>
+          </div>
         </div>
     </div>
     <div class="p-3 mb-2 text-red">
@@ -35,18 +42,24 @@ export default {
 
     },
     methods: {
-        openModal(){
-          this.showContent = true;
+        openModal(id){
+          if(id === 0){
+            this.showContentPlus = true;
+          }else{
+            this.showContentMinus = true;
+          }
         },
         closeModal(){
-          this.showContent = false; 
+          this.showContentPlus = false;
+          this.showContentMinus = false; 
         },
         plus(){
-            this.showContent = false; 
+            this.showContentPlus = false; 
             this.message = "おつかれさま！";
             this.currentPoint ++;
         },
         minus(){
+            this.showContentMinus = false;
             this.message = "ご褒美！";
             this.currentPoint -= 4;
         }
@@ -55,7 +68,8 @@ export default {
         appName: "おすしポイント",
         currentPoint: "0",
         message: " ", 
-        showContent: false
+        showContentPlus: false,
+        showContentMinus: false
     }),
 }
 </script>
