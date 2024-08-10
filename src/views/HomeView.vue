@@ -63,41 +63,13 @@ export default {
   body{
     background-image:
         url(../assets/tamago.png),
-        url(../assets/buri.png),
         url(../assets/hamachi.png),
-        url(../assets/ikura.png),
-        url(../assets/kinmedai.png),
-        url(../assets/negitoro.png),
-        url(../assets/torotaku.png),
-        url(../assets/salmon.png),
-        url(../assets/tai.png),
-        url(../assets/nodoguro.png),
-        url(../assets/hotate.png),
-        url(../assets/inarizushi.png),
-        url(../assets/iwashi.png),
-        url(../assets/anago.png);
-    background-position:   
-        top 200px left 30px,
-        top 300px left 30px,
-        top 400px left 30px,
-        top 500px left 30px,
+        url(../assets/ikura.png);
+    background-position:
         top 600px left 30px,
         top 600px left 160px,
-        top 600px left 290px,
-        top 600px left 420px,
-        top 600px left 550px,
-        top 500px left 550px,
-        top 400px left 550px,
-        top 300px left 550px,
-        top 200px left 550px;
+        top 600px left 290px;
     background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        no-repeat,
         no-repeat;
   },
   #overlay{
