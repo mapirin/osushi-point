@@ -42,6 +42,7 @@ export default {
           this.showContent = false; 
         },
         plus(){
+            this.showContent = false; 
             this.message = "おつかれさま！";
             this.currentPoint ++;
         },
